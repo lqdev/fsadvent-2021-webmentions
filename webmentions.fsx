@@ -111,10 +111,6 @@ let discoverWebmentionUrlAsync (url:string) =
         return webmentionUrl
     }
 
-// Check whether webmention URL is absolute or not
-let isAbsoluteUrl (url:string) = 
-    url.Contains("http")
-
 // Send url-encoded POST request with webmention
 let sendWebMentionAsync (url:string) (req:IDictionary<string,string>) = 
     async {
@@ -139,7 +135,7 @@ let runWebmentionWorkflow () =
         let authority = targetUrl.GetLeftPart(UriPartial.Authority)
 
         let constructedUrl = 
-            match (isAbsoluteUrl discoveredUrl) with
+            match (discoveredUrl.Contains("http")) with
             | true -> discoveredUrl
             | false -> 
                 let noQueryUrl = 
