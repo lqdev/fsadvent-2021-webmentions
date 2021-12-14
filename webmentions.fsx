@@ -125,7 +125,7 @@ let sendWebMentionAsync (url:string) (req:IDictionary<string,string>) =
     }
 
 // Run webmention workflow
-let sourceUrl = new Uri("http://lqdev.me")
+let sourceUrl = new Uri("https://raw.githubusercontent.com/lqdev/fsadvent-2021-webmentions/main/reply.html")
 let targetUrl = new Uri("https://webmention.rocks/test/1")
 
 let runWebmentionWorkflow () = 
